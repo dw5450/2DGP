@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일\GameManager">
+      <UniqueIdentifier>{8853e5ad-41d7-4a23-8f5a-42c9a30157b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameManager">
+      <UniqueIdentifier>{94818b49-5959-4017-a1f9-56e6237457b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\GameManager\Object">
+      <UniqueIdentifier>{dc3640e2-9fa3-4299-92cc-c833a9591a14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameManager\Object">
+      <UniqueIdentifier>{f1491bda-7547-4aef-b369-96f3bc16e988}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="WinAPI Project.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>헤더 파일\GameManager\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>헤더 파일\GameManager\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>헤더 파일\GameManager\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>헤더 파일\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>헤더 파일\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Wind.h">
+      <Filter>헤더 파일\GameManager\Object</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="WinProc.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>소스 파일\GameManager\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>소스 파일\GameManager\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 파일\GameManager\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>소스 파일\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Wind.cpp">
+      <Filter>소스 파일\GameManager\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="mapTool.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WinAPI Project.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="WinAPI Project.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="몬스터 리소스\구름\구름 스프라이트.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="캐릭터 리소스\캐릭터 스프라이트 vision 1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="바람 리소스\바람 스프라이트.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="바람 리소스\바람 게이지 스프라이트.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="배경 리소스\배경화면 1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="몬스터 리소스\벨즈\밸즈 스프라이트.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="몬스터 리소스\벨즈\밸즈 스킬 스프라이트.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="몬스터 리소스\비둘기\비둘기스프라이트.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="몬스터 리소스\마녀\마녀 스프라이트.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="몬스터 리소스\마녀\마녀 스킬 스프라이트.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="몬스터 리소스\벨즈\K-008.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="몬스터 리소스\구름\K-016.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="몬스터 리소스\비둘기\K-021.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="몬스터 리소스\마녀\K-026.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="캐릭터 리소스\Hp gage 스프라이트.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="몬스터 리소스\마녀\bitmap2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="인터페이스 리소스\시작화면.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="인터페이스 리소스\게임 설명 화면.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="인터페이스 리소스\인터페이스 설명 화면.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="인터페이스 리소스\몬스터 설명.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="인터페이스 리소스\사망 화면.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="배경 리소스\배경화면 2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

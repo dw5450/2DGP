@@ -3,6 +3,7 @@ import random
 from pico2d import *
 
 import game_framework
+import map_tool
 
 backgraound_width = 1600
 backgraound_height = 1800
@@ -12,17 +13,23 @@ canvas_height = 600
 
 boy = None
 grass = None
+lupin = None
 font = None
 running = True
 frame_time = 0
 
+com_x = 0
+com_y = 0
+
 class Background:
     def __init__(self):
-        self.image = load_image('map.png')
-        self.left = 0;
-        self.bottom = 0;
+        self.image = load_image('map_background.png')
+        self.left = 0
+        self.bottom = 0
+
     def set_center_object(self, boy):
         self.center_object = boy
+
     def draw(self):
         self.image.clip_draw_to_origin(self.left, self.bottom, int( backgraound_width - self.left * backgraound_width / 236),int( backgraound_height - self.bottom * backgraound_height / 270), 0, 0)
 
@@ -49,6 +56,49 @@ class Grass:
     def draw(self):
         self.image.draw(400, 30)
 
+class Lupin:
+
+    TIME_PER_ACTION = 2.0
+    ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
+    FRAMES_PER_ACTION = 8
+
+    def __init__(self):
+        self.image = load_image('lupin.png')
+        self.banana_image = load_image('banana.png')
+        self.total_frames = 0.0
+        self.frame = 0
+
+        self.throw_banana = False
+        self.banana_time = 0
+        self.banana_total_frames = 0.0
+        self.banana_frame = 0
+
+        self.x = 400
+        self.y = 200
+
+    def draw(self):
+        # fill here
+        global com_x, com_y
+        self.image.clip_draw((self.frame) * 100, 100, 100, 100,self.x + com_x, self.y + com_y)
+        if(self.throw_banana == True):
+            self.banana_image.clip_draw((self.banana_frame) * 50, 50, 40, 50, self.x + 30 * int(self.banana_total_frames) + com_x, self.y + com_y)
+
+    def update(self, frame_time):
+        self.total_frames += self.FRAMES_PER_ACTION * self.ACTION_PER_TIME * frame_time
+        self.frame = int(self.total_frames) % 8
+        if(self.frame == 6):
+            self.throw_banana = True
+
+        if(self.throw_banana == True):
+            self.banana_total_frames += self.FRAMES_PER_ACTION * self.ACTION_PER_TIME * self.banana_time
+            self.banana_frame = int(self.banana_total_frames) % 4
+            self.banana_time = 0.04
+
+            if(self.banana_total_frames > 7):
+                self.banana_time = 0
+                self.banana_frame = 0
+                self.banana_total_frames = 0
+                self.throw_banana = False
 
 
 class Boy:
@@ -118,15 +168,20 @@ class Boy:
 
         if(self.x < canvas_width /2 and self.x < canvas_width/2):
             self.draw_x = self.x
-        elif(self.x >= backgraound_width /2  and self.x < (backgraound_width - canvas_width)):
+        elif(canvas_width /2<= self.x  and self.x < (backgraound_width - canvas_width)):
+            global com_x
             self.draw_x = canvas_width/2
+            com_x =  canvas_width/2 - self.x                               #보정 수치는 항상 -로
+            print(">")
         elif(self.x >=  (backgraound_width - canvas_width)):
             self.draw_x = self.x - (backgraound_width - canvas_width) + canvas_width/2
 
         if (self.y < canvas_height/2):
             self.draw_y = self.y
         elif(self.y >=  canvas_height/2 and self.y < (backgraound_height - canvas_height)):
-            self.draw_y = canvas_height/2
+            global com_y
+            draw_y = canvas_height/2
+            com_y =  canvas_height/2 - self.y                              #보정 수치는 항상 -로
         elif(self.y >=  (backgraound_height - canvas_height)):
             self.draw_y = self.y - (backgraound_height - canvas_height) + canvas_height/2
 
@@ -191,16 +246,17 @@ class Boy:
 def enter():
     # fill here
     open_canvas()
-    global boy, grass, map
+    global boy, grass, map, lupin
     boy = Boy()
     grass = Grass()
     map = Background()
+    lupin = Lupin()
     map.set_center_object(boy)
 
 
 
 def exit():
-    global boy, grass
+    global boy, grass, map, lupin
     del(boy)
     del(grass)
     del(map)
@@ -219,7 +275,9 @@ def handle_events(frame_time):
     events = get_events()
     for event in events:
         if(event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
-            close_canvas()
+            exit()
+        elif(event.type, event.key) == (SDL_KEYDOWN, SDLK_q):
+            game_framework.push_state(map_tool)
         else:
             boy.handle_events(event,frame_time )
 
@@ -228,6 +286,7 @@ def update(frame_time):
     frame_time+=0.01
     boy.update(frame_time)
     map.update(frame_time)
+    lupin.update(frame_time)
     delay(0.01);
 
 def draw(frame_time):
@@ -236,6 +295,7 @@ def draw(frame_time):
     map.draw()
     grass.draw()
     boy.draw()
+    lupin.draw()
     update_canvas()
 
 
